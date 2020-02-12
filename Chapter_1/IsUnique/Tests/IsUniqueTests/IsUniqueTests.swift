@@ -22,8 +22,25 @@ final class IsUniqueTests: XCTestCase {
         XCTAssert(Solution2.isUnique(testString4) == true)
     }
 
+    func testSolution3() {
+        XCTAssert(Solution2.isUnique(testString1.lowercased()) == false)
+        XCTAssert(Solution2.isUnique(testString2.lowercased()) == false)
+        XCTAssert(Solution2.isUnique(testString3.lowercased()) == true)
+        XCTAssert(Solution2.isUnique(testString4.lowercased()) == true)
+    }
+
+    func testCharacters() {
+        let charA = Character("A")
+        let charArray = Array("ABCD")
+        let result = charArray[1].asciiValue! - charA.asciiValue!
+        debugPrint("[Debug] result: \(result)")
+        XCTAssert(charA == charArray[0])
+    }
+
     static var allTests = [
         ("testSolution1", testSolution1),
-        ("testSolution2", testSolution2)
+        ("testSolution2", testSolution2),
+        ("testSolution3", testSolution3),
+        ("testCharacters", testCharacters)
     ]
 }

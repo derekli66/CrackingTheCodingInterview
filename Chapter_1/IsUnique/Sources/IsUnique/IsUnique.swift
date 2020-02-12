@@ -37,3 +37,23 @@ class Solution2 {
         return true
     }
 }
+
+class Solution3 {
+    static func isUnique(_ str: String) -> Bool {
+        // Base character
+        let charA = Character("a")
+        let characters = Array(str)
+
+        var counter: Int = 0
+        for str in characters {
+            let character = str
+            let value = character.asciiValue! - charA.asciiValue!
+            if counter & (1 << value) > 0 {
+                return false
+            }
+            counter = counter | (1 << value)
+        } 
+
+        return true
+    }
+}
